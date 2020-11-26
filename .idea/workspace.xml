@@ -11,26 +11,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="149ec39a-ee8e-4740-8eb9-9677fcdc94db" name="Default Changelist" comment="initial commit">
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config/packages/doctrine.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config/packages/doctrine_migrations.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config/packages/prod/doctrine.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config/routes/annotations.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docker/logs/nginx/access.log" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docker/logs/nginx/error.log" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docker/logs/nginx/symfony_access.log" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docker/logs/nginx/symfony_error.log" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/migrations/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Entity/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Repository/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/databases.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/databases.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker/docker-compose.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker/nginx/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/docker/nginx/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker/nginx/default.conf" beforeDir="false" afterPath="$PROJECT_DIR$/docker/nginx/default.conf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker/php-fpm/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/docker/php-fpm/Dockerfile" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ComposerSettings" synchronizationState="SYNCHRONIZE">
+  <component name="ComposerSettings" doNotAsk="true" synchronizationState="SYNCHRONIZE">
     <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
     <execution />
   </component>
@@ -115,7 +108,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="D:/Fugamedia" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
@@ -127,7 +120,8 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1605523281635</updated>
-      <workItem from="1605523282786" duration="4691000" />
+      <workItem from="1605523282786" duration="7649000" />
+      <workItem from="1605615104140" duration="25000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit">
       <created>1605527607817</created>
@@ -159,6 +153,7 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="initial commit" />
@@ -169,6 +164,10 @@
       <screen x="0" y="0" width="3440" height="1400" />
     </state>
     <state x="605" y="527" key="#Notifications/0.0.3440.1400/-2560.0.2560.1400@0.0.3440.1400" timestamp="1605527531146" />
+    <state x="647" y="454" key="FileChooserDialogImpl" timestamp="1605615127522">
+      <screen x="0" y="0" width="3440" height="1400" />
+    </state>
+    <state x="647" y="454" key="FileChooserDialogImpl/0.0.3440.1400/-2560.0.2560.1400@0.0.3440.1400" timestamp="1605615127522" />
     <state x="738" y="601" key="Github.ShareDialog" timestamp="1605527431581">
       <screen x="0" y="0" width="3440" height="1400" />
     </state>
