@@ -12,7 +12,7 @@ use Doctrine\Persistence\ManagerRegistry;
  * @method TransactionProductNew[]    findAll()
  * @method TransactionProductNew[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
-class TransactionProductRepository extends ServiceEntityRepository
+class TransactionProductNewRepository extends ServiceEntityRepository
 {
     public function __construct(ManagerRegistry $registry)
     {

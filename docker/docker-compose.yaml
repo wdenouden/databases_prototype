@@ -6,6 +6,18 @@ services:
       - '5433:5432'
     environment:
       POSTGRES_PASSWORD: m33rk03t
+  mariadb:
+    image: mariadb:10.2
+    ports:
+      - '3306:3306'
+    environment:
+      MYSQL_ROOT_PASSWORD: m33rk03t
+      MYSQL_DATABASE: prototype_db
+      MYSQL_USER: wouter
+      MYSQL_PASSWORD: m33rk03t
+    restart: on-failure
+    volumes:
+    - ./mariadb:/var/lib/mysql
   php:
     build: php-fpm
     ports:

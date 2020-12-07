@@ -11,3 +11,6 @@
 ###< symfony/framework-bundle ###
 
 /docker/logs/
+docker/mariadb/
+
+migrations/

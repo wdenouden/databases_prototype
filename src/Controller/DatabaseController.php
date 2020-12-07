@@ -1,21 +1,36 @@
 <?php
 
-namespace App\DataFixtures;
+namespace App\Controller;
 
 use App\Entity\Location;
 use App\Entity\Organization;
 use App\Entity\Transaction;
 use App\Entity\TransactionProduct;
 use App\Entity\TransactionProductNew;
-use Doctrine\Bundle\FixturesBundle\Fixture;
-use Doctrine\Persistence\ObjectManager;
+use Doctrine\ORM\EntityManager;
+use Doctrine\ORM\EntityManagerInterface;
 use Faker\Factory;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\JsonResponse;
+use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Uid\Uuid;
 
-class AppFixtures extends Fixture
+/**
+ * Class DatabaseController
+ * @package App\Controller
+ *
+ * @Route(path="database")
+ */
+class DatabaseController extends AbstractController
 {
-    public function load(ObjectManager $manager)
+    /**
+     * @Route("/add-data", name="database",)
+     */
+    public function addData(EntityManagerInterface $em)
     {
+        $em->getConnection()->getConfiguration()->setSQLLogger(null);
+
         $faker = Factory::create();
 
         $array_dates = [new \DateTime('yesterday'), new \DateTime('now'), new \DateTime('tomorrow')];
@@ -29,7 +44,7 @@ class AppFixtures extends Fixture
             $location->setFuelpassIdentifier($faker->word);
             $location->setSpinId($faker->randomNumber());
             $location->setUuid(Uuid::v4());
-            $manager->persist($location);
+            $em->persist($location);
             $array_locations[] = $location;
         }
 
@@ -41,14 +56,11 @@ class AppFixtures extends Fixture
             $organization->setFuelpassIdentifier($faker->word);
             $organization->setName($faker->company);
             $organization->setEmail($faker->companyEmail);
-            $manager->persist($organization);
+            $em->persist($organization);
             $array_organizations[] = $organization;
         }
 
-        $manager->flush();
-        $manager->clear();
-
-        for($i = 0; $i < 40000; $i++) {
+        for($i = 0; $i < 10000; $i++) {
             $transaction_product_id = $faker->randomNumber();
             $product_id = $faker->randomNumber();
             $transaction_product_name = $faker->words[1];
@@ -96,19 +108,19 @@ class AppFixtures extends Fixture
 
             $transaction_product->setTransaction($transaction);
 
-            $manager->persist($transaction);
-            $manager->persist($transaction_product);
+            $em->persist($transaction);
+            $em->persist($transaction_product);
 
             /** @var TransactionProductNew $transaction_product_new */
-            $transaction_product_new = new TransactionProductNew();
-            $transaction_product_new->setTransactionProductId($transaction_product_id);
+            $transaction_product_new = new TransactionProductNew($transaction_product_id);
+            $transaction_product_new->setTransactionProductId($transaction_product->getId());
             $transaction_product_new->setProductId($product_id);
             $transaction_product_new->setName($transaction_product_name);
             $transaction_product_new->setBarcode($barcode);
             $transaction_product_new->setPrice($price);
             $transaction_product_new->setQuantity($quantity);
             $transaction_product_new->setUnitType($unit_type);
-            $transaction_product_new->setTransactionId($trans_id);
+            $transaction_product_new->setTransactionId($transaction->getId());
             $transaction_product_new->setTransId($trans_id);
             $transaction_product_new->setType($type);
             $transaction_product_new->setStatus($status);
@@ -123,14 +135,21 @@ class AppFixtures extends Fixture
             $transaction_product_new->setUserId($user_id);
             $transaction_product_new->setUserName($user_name);
             $transaction_product_new->setIsRefund($is_refund);
-            $manager->persist($transaction_product_new);
+            $em->persist($transaction_product_new);
 
             if($i%100 == 0) {
-                $manager->flush();
-                $manager->clear();
+                $em->flush();
+                $em->clear();
             }
         }
-        $manager->flush();
-        $manager->clear();
+        $em->flush();
+        $em->clear();
+
+        return new JsonResponse('Done');
+    }
+
+    public function createCSV()
+    {
+
     }
 }
